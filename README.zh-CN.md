@@ -1,5 +1,12 @@
 ![](/public/og-image.png)
 
+本地使用的是 nodejs25 版本启动服务报错，解决：
+## 解决方案
+1. 升级插件 ：将 vite-plugin-with-nitro 从 0.0.3 升级到 0.0.5
+2. 解决版本冲突 ：发现 vite-plugin-with-nitro@0.0.5 依赖了 h3-nightly@2.0.0-20260309-115135-c28356e ，而项目使用的是 h3@1.15.3
+3. 版本解析 ：在 package.json 中添加了 "h3-nightly": "npm:h3@^1.15.1" 来强制使用稳定版本的 h3
+4. 手动修复 lock 文件 ：在 pnpm-lock.yaml 中将所有 h3-nightly 的引用替换为 h3@1.15.3
+
 [English](./README.md) | 简体中文 | [日本語](README.ja-JP.md)
 
 ***优雅地阅读实时热门新闻***

@@ -1,3 +1,7 @@
 import { fileURLToPath } from "node:url"
+import { dirname, resolve } from "node:path"
 
-export const projectDir = fileURLToPath(new URL("..", import.meta.url))
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+export const projectDir = resolve(__dirname, "..")
